@@ -1,2 +1,2 @@
 # docker-images
-Docker composed images used by beegal org
+Docker images used by beegal org
