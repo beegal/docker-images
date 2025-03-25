@@ -15,9 +15,16 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
-    - name: Build and push
+    - name: Build and push pyplus
       uses: docker/build-push-action@v5
       with:
         context: "{{defaultContext}}:pyplus"
         push: true
         tags: beegal/pyplus:latest
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        context: "{{defaultContext}}:py-rest-pi"
+        push: true
+        tags: beegal/py-rest-pi:latest
+
