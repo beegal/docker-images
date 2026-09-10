@@ -27,4 +27,9 @@ jobs:
         context: "{{defaultContext}}:py-rest-pi"
         push: true
         tags: beegal/py-rest-pi:latest
-
+    - name: Build and push k8s-dns-node-cache
+      uses: docker/build-push-action@v5
+      with:
+        context: "{{defaultContext}}:k8s-dns-node-cache"
+        push: true
+        tags: beegal/k8s-dns-node-cache:1.26.8
