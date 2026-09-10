@@ -9,26 +9,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Login to Docker Hub
-      uses: docker/login-action@v3
+      uses: docker/login-action@v4
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      uses: docker/setup-buildx-action@v4
     - name: Build and push pyplus
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v7
       with:
         context: "{{defaultContext}}:pyplus"
         push: true
         tags: beegal/pyplus:latest
     - name: Build and push
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v7
       with:
         context: "{{defaultContext}}:py-rest-pi"
         push: true
         tags: beegal/py-rest-pi:latest
     - name: Build and push k8s-dns-node-cache
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v7
       with:
         context: "{{defaultContext}}:k8s-dns-node-cache"
         push: true
